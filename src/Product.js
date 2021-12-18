@@ -1,9 +1,9 @@
 import React from 'react'
 import './Product.css';
 import ReactPlayer from 'react-player'
-import "./TV.mp4"; 
+import { useStateValue } from "./StateProvider"
 
-function Product({ title, image, video, price, rating }) {
+function Product({ id, title, image, video, price, rating }) {
     let picture;
     if(image){
         picture = <img src={ image } alt={ title } /> ;
@@ -15,6 +15,23 @@ function Product({ title, image, video, price, rating }) {
                     loop={ true }/> ;
     }
 
+    const [{ basket }, dispatch] = useStateValue();
+
+    
+    console.log(basket);
+
+    const addToBasket = () => {
+        dispatch({
+            type: 'ADD__TO__BASKET',
+            item: {
+                id: id,
+                title: title,
+                image:image ,
+                price: price ,
+                rating: rating 
+            }
+        })
+    }
     return (
         <div className='product'>
             <div className="product__info">
@@ -33,7 +50,7 @@ function Product({ title, image, video, price, rating }) {
                 { picture }
                 
             </div>
-            <button className='add__product'>Add to basket</button>
+            <button className='add__product' onClick={ addToBasket }>Add to basket</button>
         </div>
     )
 }

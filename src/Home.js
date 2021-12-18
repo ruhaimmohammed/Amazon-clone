@@ -55,8 +55,9 @@ function Home() {
                     id="6"
                     title= "Samsung 138 cm (55 inches) Crystal 4K Series Ultra HD Smart LED TV UA55AUE60AKLXL (Black) (2021 Model)"
                     price={61990}
+                    image="https://m.media-amazon.com/images/I/61GwJAhftvS._SX425_.jpg"
                     video="https://www.youtube.com/watch?v=GRFKeCRoZco"
-                    rating={5}/>               
+                    rating={4}/>               
 
                 </div>
             </div>
