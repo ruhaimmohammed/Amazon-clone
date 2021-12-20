@@ -30,6 +30,9 @@
     padding: 2px 10px;
     border-radius: 5px;
 }
+.add__product:hover{
+    cursor: pointer;
+}
 
 .product__price{
     margin-top: 5px;
