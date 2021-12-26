@@ -3,16 +3,16 @@ import './Product.css';
 import ReactPlayer from 'react-player'
 import { useStateValue } from "./StateProvider"
 
-function Product({ id, title, image, video, price, rating }) {
+function Product({ id, title, image, video, price, rating, popUp }) {
     let picture;
-    if(image){
-        picture = <img src={ image } alt={ title } /> ;
-    }else{
+    if(video){
         picture = <ReactPlayer 
-                    url={ video }
-                    playing={ true }
-                    muted={ true }
-                    loop={ true }/> ;
+        url={ video }
+        playing={ true }
+        muted={ true }
+        loop={ true }/> ;
+    }else{
+        picture = <img src={ image } alt={ title } /> ;
     }
 
     const [{ basket }, dispatch] = useStateValue();
@@ -21,6 +21,8 @@ function Product({ id, title, image, video, price, rating }) {
     console.log(basket);
 
     const addToBasket = () => {
+        popUp();
+
         dispatch({
             type: 'ADD__TO__BASKET',
             item: {
@@ -31,6 +33,7 @@ function Product({ id, title, image, video, price, rating }) {
                 rating: rating 
             }
         })
+        
     }
     return (
         <div className='product'>
@@ -46,7 +49,7 @@ function Product({ id, title, image, video, price, rating }) {
                    ))}
                 </div>
             </div>
-            <div className="product__imageContainer">
+            <div style={ video && {marginBottom:"20px"}} className="product__imageContainer">
                 { picture }
                 
             </div>
