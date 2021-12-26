@@ -10,6 +10,8 @@ import { auth } from './firebase';
 function Header() {
     const [{ basket, user }, dispatch] = useStateValue();
 
+    let name = user?.email.substring(0, user?.email.lastIndexOf("@")) ;
+
     const handleAuthentication = () => {
         if(user) {
             auth.signOut();
@@ -31,7 +33,7 @@ function Header() {
                 <Link to={!user && "/login"}>
                     <div onClick={ handleAuthentication } className="header__option">
                         <span className='header__optionLineOne'>
-                            Hello { user ? user.email : "Guest" }
+                            Hello { user ? name.charAt(0).toUpperCase() + name.slice(1) : "Guest" }
                         </span>
                         <span className='header__optionLineTwo'>
                             { user ? 'Sign Out' : 'Sign In' }
