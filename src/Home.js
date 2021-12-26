@@ -3,7 +3,6 @@ import {Link} from "react-router-dom"
 import Header from './Header';
 import './Home.css';
 import Product from './Product';
-import "./TV.mp4";
 
 function Home() {
     return (
