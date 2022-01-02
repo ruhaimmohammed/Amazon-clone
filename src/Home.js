@@ -3,7 +3,7 @@ import Header from './Header';
 import './Home.css';
 import Product from './Product';
 
-function Home({ popUp }) {
+function Home({ popUp, popUpError }) {
     return (
         <div className="main">
             <Header />
@@ -20,6 +20,7 @@ function Home({ popUp }) {
                     image="https://m.media-amazon.com/images/I/71m-MxdJ2WL._AC_UY327_FMwebp_QL65_.jpg"
                     rating={5}
                     popUp={popUp}
+                    popUpError={popUpError}
                     />
                     <Product
                     id="2"
@@ -28,6 +29,7 @@ function Home({ popUp }) {
                     image="https://m.media-amazon.com/images/I/81SdJG3OUjL._SX450_.jpg"
                     rating={5}
                     popUp={popUp}
+                    popUpError={popUpError}
                      />
                 </div>
                 <div className="home__row">
@@ -38,6 +40,7 @@ function Home({ popUp }) {
                     image="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/kkeylxui0asbndztnwux/air-force-1-gore-tex-shoes-xz207L.png"
                     rating={4}
                     popUp={popUp}
+                    popUpError={popUpError}
                     />
                     <Product 
                     id="4"
@@ -46,6 +49,7 @@ function Home({ popUp }) {
                     image="https://content.oneplus.net/skin/frontend/oneplus2015/default/images/feature/two/impress-img.png"
                     rating={5}
                     popUp={popUp}
+                    popUpError={popUpError}
                     />
                     <Product 
                     id="5"
@@ -54,6 +58,7 @@ function Home({ popUp }) {
                     image="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSd1n-wnE93le8f5YDlNOPoDbYphavUMJL-cwK8zlxPosX4Rx_b0ngIRbsyX6pt6zm1HQ0y4lzj&usqp=CAc"
                     rating={4}
                     popUp={popUp}
+                    popUpError={popUpError}
                     />
                 </div>
                 <div className="home__row">
@@ -65,6 +70,7 @@ function Home({ popUp }) {
                     image="https://images.samsung.com/is/image/samsung/p6pim/in/ua43au9070ulxl/gallery/in-crystal-uhd-au9000-ua43au9070ulxl-422293401?$720_576_PNG$"
                     rating={4}
                     popUp={popUp}
+                    popUpError={popUpError}
                     />               
 
                 </div>

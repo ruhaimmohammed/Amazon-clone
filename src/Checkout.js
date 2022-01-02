@@ -5,7 +5,7 @@ import Header from './Header';
 import { useStateValue } from './StateProvider';
 import Subtotal from './Subtotal';
 
-function Checkout() {
+function Checkout({ popUpError }) {
     const [{ basket, user }, dispatch] = useStateValue();
 
     let name = user?.email.substring(0, user?.email.lastIndexOf("@"));
@@ -29,6 +29,7 @@ function Checkout() {
                             image={item.image}
                             price={item.price}
                             rating={item.rating}
+                            popUpError={popUpError}
                         />
                     ))}
                 </div>

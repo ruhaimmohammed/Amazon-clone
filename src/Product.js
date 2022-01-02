@@ -3,7 +3,7 @@ import './Product.css';
 import ReactPlayer from 'react-player'
 import { useStateValue } from "./StateProvider"
 
-function Product({ id, title, image, video, price, rating, popUp }) {
+function Product({ id, title, image, video, price, rating, popUp, popUpError }) {
     let picture;
     if(video){
         picture = <ReactPlayer 
@@ -21,7 +21,7 @@ function Product({ id, title, image, video, price, rating, popUp }) {
     console.log(basket);
 
     const addToBasket = () => {
-        popUp();
+        popUp("Added: ", title);
 
         dispatch({
             type: 'ADD__TO__BASKET',
