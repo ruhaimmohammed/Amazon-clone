@@ -4,7 +4,7 @@ import "./Login.css";
 import { auth } from "./firebase"
 
 
-function Login() {
+function Login({ popUpWarn }) {
     const history = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,7 +16,7 @@ function Login() {
             .then( auth => {
                 history('/')
             })
-            .catch(error => alert(error.message))
+            .catch(error => popUpWarn(error.message))
              // popup if possible
     }
 
@@ -30,7 +30,7 @@ function Login() {
                     history('/')
                 }
             })
-            .catch(error => alert(error.message))
+            .catch(error => popUpWarn(error.message))
             // popup if possible
     }
 
