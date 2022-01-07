@@ -36,3 +36,7 @@
 .payment__items{
     flex: 0.7 1;
 }
+
+.payment__details{
+    flex: 0.7 1;
+}

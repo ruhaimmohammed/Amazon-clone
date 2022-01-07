@@ -9,7 +9,11 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Payment from './Payment';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+const promise = loadStripe
+  ('pk_test_51KFQiaSJ6QE2coyR486x1Yfx238T9SFicQtWwKJjqVtvKVx7nVzIxFqluQMnJibMeZaujWxTsqzixGV7RvWK6jP900PeBDyBUU');
 
 toast.configure();
 function App() {
@@ -80,7 +84,7 @@ function App() {
           <Route path="/login" element={<Login popUp={popUp} popUpWarn={popUpWarn}/>} />
           <Route path="/" element={<Home popUp={popUp} popUpError={popUpError} />} />
           <Route path="/checkout" element={<Checkout popUp={popUp} popUpError={popUpError} />} />
-          <Route path="/payment" element={ <Payment popUp={popUp} popUpError={popUpError}/> } />
+          <Route path="/payment" element={<Elements stripe={promise}><Payment popUp={popUp} popUpError={popUpError}/></Elements>  } />
         </Routes>
       </div>
     </Router>
