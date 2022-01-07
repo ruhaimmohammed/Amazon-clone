@@ -4,7 +4,7 @@ import "./Login.css";
 import { auth } from "./firebase"
 
 
-function Login({ popUpWarn }) {
+function Login({ popUp, popUpWarn }) {
     const history = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,11 +13,12 @@ function Login({ popUpWarn }) {
         e.preventDefault();
         auth
             .signInWithEmailAndPassword(email, password)
-            .then( auth => {
+            .then(auth => {
                 history('/')
+                popUp( "Login " , "Successfully" )
             })
             .catch(error => popUpWarn(error.message))
-             // popup if possible
+        // popup if possible
     }
 
     const register = e => {
@@ -26,12 +27,13 @@ function Login({ popUpWarn }) {
         auth
             .createUserWithEmailAndPassword(email, password)
             .then((auth) => {
-                if(auth){
+                if (auth) {
                     history('/')
                 }
+                popUp( "Account " , "Created Successfully" );
             })
             .catch(error => popUpWarn(error.message))
-            // popup if possible
+        // popup if possible
     }
 
     return (
@@ -46,14 +48,16 @@ function Login({ popUpWarn }) {
 
                 <form >
                     <h5>E-Mail</h5>
-                    <input type="email"  value={ email } onChange={ e => setEmail(e.target.value) }/>
+                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
 
                     <h5>Password</h5>
-                    <input type="password" value={ password } onChange={ e => setPassword(e.target.value) }/>
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
 
-                    <button type='submit' className='login__signInButton' onClick={ signIn }>Sign in</button>
-                    <button className='login__registerButton' onClick={ register } >Create New Account</button>
+                    <button type='submit' className='login__signInButton' onClick={signIn}>Sign in</button>
                 </form>
+            </div>
+            <div className="login__container__2" style={{ marginTop: "10px" }}>
+                <button className='login__registerButton' onClick={register} >Create New Account</button>
             </div>
         </div>
     )
