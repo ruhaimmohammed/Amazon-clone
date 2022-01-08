@@ -7,14 +7,17 @@
 }
 
 .login__logoContainer{
-    width: 100%;
+    min-width: 391px;
     text-align: center;
+    background-color: black;
+    height: 65px;
+    margin: 15px;
+    border-radius: 5px;
 }
 
 .login__logo{
-    margin: 20px auto;
     object-fit: contain;
-    width: 100px;
+    height: inherit;
 }
 
 .login__container {

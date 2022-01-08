@@ -40,7 +40,7 @@ function Login({ popUp, popUpWarn }) {
         <div className='login'>
             <Link to="/checkout">
                 <div className="login__logoContainer">
-                    <img className='login__logo' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon Logo" />
+                    <img className='login__logo' src="https://www.creativefabrica.com/wp-content/uploads/2019/02/Monogram-FL-Logo-by-Greenlines-Studios-580x387.jpg" alt="Amazon Logo" />
                 </div>
             </Link>
             <div className="login__container">

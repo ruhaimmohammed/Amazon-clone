@@ -22,7 +22,7 @@ function Header() {
     return (
         <div className='header'>
             <Link to="/">
-                <img className='header__logo' src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon_Logo" />
+                <img className='header__logo' src="https://www.creativefabrica.com/wp-content/uploads/2019/02/Monogram-FL-Logo-by-Greenlines-Studios-580x387.jpg" alt="Amazon_Logo" />
             </Link>
             <div className="header__search">
                 <input className='header__searchInput' type="text" />

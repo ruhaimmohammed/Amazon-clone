@@ -2,17 +2,18 @@
     display: flex;
     height: 60px;
     align-items: center;
-    background-color: #131921;
+    background-color: black;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .header__logo{
-    width: 100px;
+    width: 80px;
     object-fit: contain;
     margin: 0 20px;
-    margin-top: 18px;
+    margin-top: 3px;
+    height: 57px;
 }
 
 .header__search{
