@@ -9,7 +9,7 @@ import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
 import axios from './axios';
 
-function Payment({ popUpError }) {
+function Payment({ popUp, popUpError }) {
     const [{ basket, user }, dispatch] = useStateValue();
     const history = useNavigate();
 
@@ -54,7 +54,13 @@ function Payment({ popUpError }) {
             setError(null);
             setProcessing(false);
 
-            history.replace('/');
+            dispatch({
+                type: 'EMPTY_BASKET'
+            })
+
+            popUp("Order placed ", "successfully")
+
+            history('/', { replace: true });
         })
     }
 

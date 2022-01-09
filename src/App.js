@@ -82,6 +82,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login popUp={popUp} popUpWarn={popUpWarn}/>} />
+          <Route path="/orders" element={<Orders popUp={popUp} popUpWarn={popUpWarn}/>} />
           <Route path="/" element={<Home popUp={popUp} popUpError={popUpError} />} />
           <Route path="/checkout" element={<Checkout popUp={popUp} popUpError={popUpError} />} />
           <Route path="/payment" element={<Elements stripe={promise}><Payment popUp={popUp} popUpError={popUpError}/></Elements>  } />
