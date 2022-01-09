@@ -8,6 +8,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
 import axios from './axios';
+import { db } from "./firebase"
 
 function Payment({ popUp, popUpError }) {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -48,8 +49,13 @@ function Payment({ popUp, popUpError }) {
                 card: elements.getElement(CardElement)
             }
         }).then(({ paymentIntent }) => {
-            
 
+            db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id).set({
+                basket: basket,
+                amount: paymentIntent.amount,
+                created: paymentIntent.created,
+            })
+            
             setSucceeded(true);
             setError(null);
             setProcessing(false);
@@ -60,7 +66,7 @@ function Payment({ popUp, popUpError }) {
 
             popUp("Order placed ", "successfully")
 
-            history('/', { replace: true });
+            history('/orders', { replace: true });
         })
     }
 

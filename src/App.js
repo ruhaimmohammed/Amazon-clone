@@ -11,6 +11,7 @@ import './App.css';
 import Payment from './Payment';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Orders from './Orders';
 
 const promise = loadStripe
   ('pk_test_51KFQiaSJ6QE2coyR486x1Yfx238T9SFicQtWwKJjqVtvKVx7nVzIxFqluQMnJibMeZaujWxTsqzixGV7RvWK6jP900PeBDyBUU');
