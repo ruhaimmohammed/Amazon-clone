@@ -9,14 +9,12 @@ function Orders() {
     const [{ basket, user }, dispatch] = useStateValue();
     const [orders, setOrders] = useState([]);
 
-    useEffect (
+    useEffect(
         () => {
             if (user) {
-
-                db
-                    .collection('users')
+                db.collection('users')
                     .doc(user?.uid)
-                    .collection('order')
+                    .collection('orders')
                     .orderBy('created', 'desc')
                     .onSnapshot(snapshot => {
                         setOrders(snapshot.docs.map(doc => ({
@@ -33,10 +31,13 @@ function Orders() {
     return (
         <div className='main'>
             <Header />
-            <div className="orders__order">
-                {orders?.map(order => {
-                    <Order order={order}/>
-                })}
+            <div className="orders">
+                <h1>Your Orders</h1>
+                <div className="orders__order">
+                    {orders?.map(order => {
+                        return <Order order={order} />
+                    })}
+                </div>
             </div>
         </div>
     )
